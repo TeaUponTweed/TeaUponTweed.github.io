@@ -18,27 +18,66 @@ pip install gunicorn flask
 gunicorn --bind 0.0.0.0:5001 wsgi:app
 
 # create service
-sudo echo "
-[Unit]
-Description=Gunicorn instance to serve mbm blog
-After=network.target
-
-[Service]
-User=mbm
-Group=www-data
-WorkingDirectory=/home/mbm/TeaUponTweed.github.io
-Environment="PATH=/home/mbm/TeaUponTweed.github.io/python_venv/bin"
-ExecStart=/home/mbm/TeaUponTweed.github.io/python_venv/bin/gunicorn --workers 3 --bind unix:TeaUponTweed.github.io.sock -m 007 wsgi:app
-
-[Install]
-WantedBy=multi-user.target
-" > /etc/systemd/system/mbmblog.service
-
+sudo cp mbmblog.service /etc/systemd/system/
 sudo systemctl start mbmblog
 sudo systemctl enable mbmblog
 sudo systemctl status mbmblog
 
+# nginx settings
+# TODO how to handle subdomains correctly
+# Make sure you add blog.co-pinion.com and www.blog.co-pinion.com A records to DNS manager
+sudo certbot --nginx -d  blog.co-pinion.com -d www.blog.co-pinion.com
+vim /etc/nginx/sites-available/mbmblog
+sudo systemctl restart nginx
+# Should now be accessible at:
+https://www.blog.co-pinion.com/#home
+https://blog.co-pinion.com/#home
 ```
 
+Your nginx should look like this after figuring out letsencrypt
+```
+server {
+    root /var/www/html;
+    server_name  blog.co-pinion.com www.blog.co-pinion.com;
+
+    listen 443 ssl; # managed by Certbot
+
+    # RSA certificate
+    ssl_certificate /etc/letsencrypt/live/co-pinion.com/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/co-pinion.com/privkey.pem; # managed by Certbot
+
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+
+    # Redirect non-https traffic to https
+    if ($scheme != "https") {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/home/mbm/mbmblog/TeaUponTweed.github.io.sock;
+    }
+    # ^^^^ IMPORTANT PART ^^^^^^^^^
+
+}
+
+server {
+    if ($host = www.blog.co-pinion.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    if ($host = blog.co-pinion.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    server_name  co-pinion.com www.co-pinion.com;
+    return 404; # managed by Certbot
+}
+
+```
 TODO
 - Firewall setup, use ufw but only allow localhost on weird internal ports
