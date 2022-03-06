@@ -24,10 +24,11 @@ sudo systemctl enable mbmblog
 sudo systemctl status mbmblog
 
 # nginx settings
-# TODO how to handle subdomains correctly
 # Make sure you add blog.co-pinion.com and www.blog.co-pinion.com A records to DNS manager
 sudo certbot --nginx -d  blog.co-pinion.com -d www.blog.co-pinion.com
-vim /etc/nginx/sites-available/mbmblog
+# See below for mbmblog listing
+sudo vim /etc/nginx/sites-available/mbmblog
+sudo ln -s /etc/nginx/sites-available/mbmblog /etc/nginx/sites-enabled/
 sudo systemctl restart nginx
 # Should now be accessible at:
 https://www.blog.co-pinion.com/#home
@@ -74,10 +75,12 @@ server {
 
     listen 80 default_server;
     listen [::]:80 default_server;
-    server_name  co-pinion.com www.co-pinion.com;
+    server_name  blog.co-pinion.com www.blog.co-pinion.com;
     return 404; # managed by Certbot
 }
 
 ```
+
 TODO
 - Firewall setup, use ufw but only allow localhost on weird internal ports
+- Figure out cacheing https://www.nginx.com/blog/nginx-caching-guide/ + maybe cloudflare
