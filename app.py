@@ -11,5 +11,9 @@ def home():
 def send_static(path):
     return send_from_directory('static', path)
 
+@app.route('/feed')
+def feed():
+    return send_file('static/rss.xml')
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5001)
