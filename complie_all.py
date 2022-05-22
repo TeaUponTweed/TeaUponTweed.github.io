@@ -3,10 +3,9 @@ import glob
 
 import markdown2
 
+
 def main():
-    posts = glob.glob('posts/*.md')
-    # html_posts = [markdown2.markdown_path(post) for post in posts]
-    # for post,html
+    posts = sorted(glob.glob('posts/*.md'),reverse=True)
     compiled_posts = {}
     for i,post in enumerate(posts,1):
         html = markdown2.markdown_path(post)
@@ -91,6 +90,41 @@ def main():
 </html>
 '''.format('\n'.join(f'<li><a href="/{post}"> {title} </a> </li>' for (title,date),post in compiled_posts.items()))
     print(index_html, file=open('static/index.html','w'))
+
+
+    rss_html = '''
+<rss version="2.0">
+    <channel>
+        <title>M. B. Mason's Blog</title> 
+        <link>https://blog.derivativeworks.co</link>
+        <description>M. B. Mason's blog on programming and other miscellaneous thoughts</description>
+        <language>en-us</language>
+{}
+    </channel>
+</rss>
+'''.format('\n'.join(f'        <item> <title>{title}</title> <link>https://blog.derivativeworks.com/{post}</link> <pubDate>{format_date_for_rss(date)}</pubDate> </item>' for (title,date),post in compiled_posts.items()))
+    print(rss_html, file=open('static/rss.xml','w'))
+
+
+def format_date_for_rss(date):
+    YYYY = date[:4]
+    MM = date[4:6]
+    DD = date[6:8]
+    months = {
+        '01': "Jan",
+        '02': "Feb",
+        '03': "Mar",
+        '04': "Apr",
+        '05': "May",
+        '06': "Jun",
+        '07': "Jul",
+        '08': "Aug",
+        '09': "Sep",
+        '10': "Oct",
+        '11': "Nov",
+        '12': "Dec",
+    }
+    return f'{DD} {months[MM]} {YYYY} 12:00:00 MST'
 
 
 if __name__ == '__main__':
