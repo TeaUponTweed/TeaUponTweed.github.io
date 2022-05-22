@@ -8,6 +8,6 @@ This movie is, like, really not that good, and Nic Cage is so not that hot. One 
 **Rating: DNF**  
 **Would recommend to people who want to hear a smattering of 80s music in the background.**
 
-![2 Dimenstional Representation of Nic Cage movie ratings](/static/nic_cage_compass.png)
+![2 Dimenstional Representation of Nic Cage movie ratings](nic_cage_compass.png)
 
 _\* Compass points will likely shift as more data is collected._
