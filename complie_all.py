@@ -7,11 +7,23 @@ import markdown2
 def main():
     posts = sorted(glob.glob('posts/*.md'),reverse=True)
     compiled_posts = {}
+    header_html = '''
+    <header>
+      <h1>
+        <a href="#home">M. B. Mason's Blog</a>
+      </h1>
+      <nav>
+        <a href="#home">Posts</a>
+        <a href="#about">About</a>
+        <a href="/static/rss.xml" type="application/rss+xml">Feed</a>
+      </nav>
+    </header>
+'''
     for i,post in enumerate(posts,1):
-        html = markdown2.markdown_path(post)
+        post_html = markdown2.markdown_path(post)
         date = os.path.basename(post)[:8]
         title = os.path.basename(post)[8:-3].replace('_',' ')
-        html = f'''
+        doc_html = '''
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,12 +31,8 @@ def main():
     <meta name="viewport" content="width=device-width,initial-scale=1">
     
     <title>{title}</title>
-
-    <!-- Recommended minimum -->
-    <meta property="og:title" content="{title}">
-    <meta property="og:description" content="{title}">
     
-    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="/static/style.css">
     <meta name="Author" content="Michael Mason" />
     <meta name="rating" content="SAFE FOR KIDS" />
     <meta name="Classification" content="Blog" />
@@ -33,13 +41,15 @@ def main():
     <meta name="Language" content="en-US" />
   </head>
   <body>
-  {html}
+  {header}
+  {body}
   </body>
 </html>
-'''
+'''.format(title=title, header=header_html, body=post_html)
         compiled_post = f'static/post{i}.html'
-        print(html, file=open(compiled_post,'w'))
+        print(doc_html, file=open(compiled_post,'w'))
         compiled_posts[title,date] = compiled_post
+
     index_html = '''
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +64,7 @@ def main():
     <meta property="og:title" content="M. B. Mason's Blog">
     <meta property="og:description" content="M. B. Mason's blog on programming and other miscellaneous thoughts">
     
-    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="/static/style.css">
     <meta name="keywords" content="nic cage, nicholas cage, blog, michael mason, denver tech blog, michael mason blog"/>
     <meta name="Author" content="Michael Mason" />
     <meta name="rating" content="SAFE FOR KIDS" />
@@ -64,21 +74,11 @@ def main():
     <meta name="Language" content="en-US" />
   </head>
   <body>
-    <header>
-      <h1>
-        <a href="#home">M. B. Mason's Blog</a>
-      </h1>
-      <nav>
-        <a href="#home">Posts</a>
-        <a href="#about">About</a>
-        <a href="/static/rss.xml" type="application/rss+xml">Feed</a>
-      </nav>
-    </header>
-
+    {header}
     <main>
     <section id="home"> <!-- HOME -->
       <ul>
-      {}
+      {body}
       <ul>
     </section>
     <section id="about"> <!-- ABOUT -->
@@ -88,7 +88,10 @@ def main():
     </section>
   </body>
 </html>
-'''.format('\n'.join(f'<li><a href="/{post}"> {title} </a> </li>' for (title,date),post in compiled_posts.items()))
+'''.format(
+    header=header_html,
+    body='\n'.join(f'<li><a href="/{post}"> {title} </a> </li>' for (title,date),post in compiled_posts.items())
+)
     print(index_html, file=open('static/index.html','w'))
 
 
