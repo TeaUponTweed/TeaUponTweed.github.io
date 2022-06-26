@@ -13,37 +13,40 @@ def main():
         <a href="#home">M. B. Mason's Blog</a>
       </h1>
       <nav>
-        <a href="#home">Posts</a>
-        <a href="#about">About</a>
+        <a href="/#home">Posts</a>
+        <!-- <a href="/#about">About</a> -->
         <a href="/static/rss.xml" type="application/rss+xml">Feed</a>
       </nav>
     </header>
 '''
-    for i,post in enumerate(posts,1):
+    for i,post in enumerate(posts):
+        i = len(posts)-i
         post_html = markdown2.markdown_path(post)
         date = os.path.basename(post)[:8]
         title = os.path.basename(post)[8:-3].replace('_',' ')
         doc_html = '''
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    
-    <title>{title}</title>
-    
-    <link rel="stylesheet" href="/static/style.css">
-    <meta name="Author" content="Michael Mason" />
-    <meta name="rating" content="SAFE FOR KIDS" />
-    <meta name="Classification" content="Blog" />
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <meta name="copyright" content="Michael Mason" />
-    <meta name="Language" content="en-US" />
-  </head>
-  <body>
-  {header}
-  {body}
-  </body>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+
+        <title>{title}</title>
+
+        <link rel="stylesheet" href="/static/style.css">
+        <meta name="Author" content="Michael Mason" />
+        <meta name="rating" content="SAFE FOR KIDS" />
+        <meta name="Classification" content="Blog" />
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="copyright" content="Michael Mason" />
+        <meta name="Language" content="en-US" />
+    </head>
+    <body>
+    {header}
+    <main>
+        {body}
+    </main>
+    </body>
 </html>
 '''.format(title=title, header=header_html, body=post_html)
         compiled_post = f'static/post{i}.html'
@@ -82,8 +85,13 @@ def main():
       <ul>
     </section>
     <section id="about"> <!-- ABOUT -->
+        </br>
+        </br>
+        </br>
         <p>
-            Written and hosted by <a href="https://github.com/TeaUponTweed/">Michael Mason</a>, a Software Engineer / Data Scientist based in Denver, Colorado.
+            <em>
+                Written and hosted by <a href="https://github.com/TeaUponTweed/">Michael Mason</a>, a Software Engineer / Data Scientist based in Denver, Colorado.
+            </em>
         </p>
     </section>
   </body>
