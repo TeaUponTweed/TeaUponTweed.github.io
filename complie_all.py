@@ -113,7 +113,7 @@ def main():
 {}
     </channel>
 </rss>
-'''.format('\n'.join(f'        <item> <title>{title}</title> <link>https://blog.derivativeworks.com/{post}</link> <pubDate>{format_date_for_rss(date)}</pubDate> </item>' for (title,date),post in compiled_posts.items()))
+'''.format('\n'.join(f'        <item> <title>{title}</title> <link>https://blog.derivativeworks.co/{post}</link> <pubDate>{format_date_for_rss(date)}</pubDate> </item>' for (title,date),post in compiled_posts.items()))
     print(rss_html, file=open('static/rss.xml','w'))
 
 
