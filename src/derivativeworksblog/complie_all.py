@@ -7,6 +7,7 @@ import markdown2
 
 def main(postdir, outdir):
     posts = sorted(glob.glob(os.path.join(postdir, "*.md")), reverse=True)
+    posts = [post for post in posts if not post.startswith("Draft")]
     compiled_posts = {}
     header_html = """
     <header>
