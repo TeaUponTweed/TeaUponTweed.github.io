@@ -1,0 +1,1 @@
+Talk about cross entropy minimization

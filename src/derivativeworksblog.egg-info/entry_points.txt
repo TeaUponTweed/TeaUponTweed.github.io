@@ -1,0 +1,2 @@
+[console_scripts]
+compile-all = derivativeworksblog.compile_all:main

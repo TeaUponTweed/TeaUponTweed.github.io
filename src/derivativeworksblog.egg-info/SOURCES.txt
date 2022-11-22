@@ -1,0 +1,13 @@
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/derivativeworksblog/__init__.py
+src/derivativeworksblog/app.py
+src/derivativeworksblog/compile_all.py
+src/derivativeworksblog.egg-info/PKG-INFO
+src/derivativeworksblog.egg-info/SOURCES.txt
+src/derivativeworksblog.egg-info/dependency_links.txt
+src/derivativeworksblog.egg-info/entry_points.txt
+src/derivativeworksblog.egg-info/requires.txt
+src/derivativeworksblog.egg-info/top_level.txt

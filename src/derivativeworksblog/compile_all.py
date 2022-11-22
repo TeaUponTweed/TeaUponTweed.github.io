@@ -3,11 +3,14 @@ import os
 import sys
 
 import markdown2
+import click
 
-
-def main(postdir, outdir):
+@click.command()
+@click.option('-p', 'postdir', type=str)
+@click.option('-o', 'outdir', type=str)
+def main(postdir: str, outdir: str):
     posts = sorted(glob.glob(os.path.join(postdir, "*.md")), reverse=True)
-    posts = [post for post in posts if not post.startswith("Draft")]
+    posts = [post for post in posts if "/Draft_" not in post]
     compiled_posts = {}
     header_html = """
     <header>
@@ -150,4 +153,4 @@ def format_date_for_rss(date):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:])
+    main()
