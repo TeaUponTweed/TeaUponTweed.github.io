@@ -11,7 +11,7 @@ Outline:
 Here is an experiment: Turn your phone on airplane mode and ask (hey Siri in my case) it to tell you the time.
 You should see something like:
 
-```
+
 You: "Hey Siri, what time is it?"
 
 ...
@@ -21,7 +21,7 @@ You: "Hey Siri, what time is it?"
 ...
 
 Siri: "Sorry..."
-```
+
 
 Notice two things:
 First, that the hard problem of transcribing free form human speech into text is accomplished flawlessly.
