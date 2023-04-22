@@ -1,3 +1,16 @@
+Interesting SEO thread: https://twitter.com/alex_buraks/status/1618988134850785280?cxt=HHwWgMDTlbDI5vcsAAAA https://twitter.com/alex_buraks/status/1619370810959093760
+- don't have numbers in your URL
+- do have keywords in your URL
+- title is important (not from that article)
+- website as a whole plays a part. It would be good to consolidate where possible.
+- Google analytics JS
+- Advertisments
+- "Pages with low quality content affect the entire domain."
+- Percentage of caps in title
+- Links from Wikipedia
+- Links from homepage
+- Less than 3 pages from "home page"
+
 Adapted from https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-18-04
 ```bash
 # setup system
