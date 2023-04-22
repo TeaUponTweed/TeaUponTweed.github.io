@@ -3,13 +3,13 @@
 MAKEFILE_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
 clean:
-	rm -f $(MAKEFILE_DIR)/static/*.html
+	rm -f $(MAKEFILE_DIR)/src/derivativeworksblog/static/*.html
 
 compile: clean
-	compile-all -p $(MAKEFILE_DIR)/posts/ -o $(MAKEFILE_DIR)/static/
+	compile-all -p $(MAKEFILE_DIR)/src/derivativeworksblog/posts/ -o $(MAKEFILE_DIR)/src/derivativeworksblog/static/
 
 inline: compile
-	@for file in $(MAKEFILE_DIR)/static/*.html; do \
+	@for file in $(MAKEFILE_DIR)/src/derivativeworksblog/static/*.html; do \
 		echo "Inlining $$file..."; \
 		inliner -i $$file > $${file%.html}.min.html; \
 		mv $${file%.html}.min.html $$file; \
