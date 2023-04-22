@@ -1,6 +1,7 @@
 import glob
 import os
 import sys
+import re
 
 import markdown2
 import click
@@ -11,11 +12,12 @@ import click
 def main(postdir: str, outdir: str):
     posts = sorted(glob.glob(os.path.join(postdir, "*.md")), reverse=True)
     posts = [post for post in posts if "/Draft_" not in post]
+    print(posts)
     compiled_posts = {}
     header_html = """
     <header>
       <h1>
-        <a href="#home">M. B. Mason's Blog</a>
+        <a href="/#home">MBM Blog</a>
       </h1>
       <nav>
         <a href="/#home">Posts</a>
@@ -24,8 +26,12 @@ def main(postdir: str, outdir: str):
       </nav>
     </header>
 """
-    for i, post in enumerate(posts):
-        i = len(posts) - i
+    regex = r".*/[0-9]{8}[\w_]+\.md"
+    pattern = re.compile(regex)
+    for post in posts:
+        assert pattern.match(post) is not None, post
+
+
         post_html = markdown2.markdown_path(post)
         date = os.path.basename(post)[:8]
         title = os.path.basename(post)[8:-3].replace("_", " ")
@@ -43,7 +49,6 @@ def main(postdir: str, outdir: str):
         <meta name="rating" content="SAFE FOR KIDS" />
         <meta name="Classification" content="Blog" />
         <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-        <meta name="copyright" content="Michael Mason" />
         <meta name="Language" content="en-US" />
     </head>
     <body>
@@ -56,7 +61,8 @@ def main(postdir: str, outdir: str):
 """.format(
             title=title, header=header_html, body=post_html
         )
-        compiled_post = os.path.join(outdir,f"post{i}.html")
+        post_name = os.path.basename(post)[9:].replace('.md', '.html')
+        compiled_post = os.path.join(outdir,post_name)
         print(doc_html, file=open(compiled_post, "w"))
         compiled_posts[title, date] = compiled_post
 
@@ -91,16 +97,6 @@ def main(postdir: str, outdir: str):
       {body}
       <ul>
     </section>
-    <section id="about"> <!-- ABOUT -->
-        </br>
-        </br>
-        </br>
-        <p>
-            <em>
-                Written and hosted by <a href="https://github.com/TeaUponTweed/">Michael Mason</a>, a Software Engineer / Data Scientist based in Denver, Colorado.
-            </em>
-        </p>
-    </section>
   </body>
 </html>
 """.format(
@@ -131,7 +127,7 @@ def main(postdir: str, outdir: str):
     print(rss_html, file=open(os.path.join(outdir, "rss.xml"), "w"))
 
 
-def format_date_for_rss(date):
+def format_date_for_rss(date: str) -> str:
     YYYY = date[:4]
     MM = date[4:6]
     DD = date[6:8]
