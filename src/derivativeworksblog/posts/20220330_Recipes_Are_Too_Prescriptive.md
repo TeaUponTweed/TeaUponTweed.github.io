@@ -1,22 +1,21 @@
-Recipes Are Too Prescriptive March 30th, 2022, Edited November 22nd, 2022
+Recipes Are Too Prescriptive
 -----------------------------------
 
-Cooking is an art not a science, but most recipes read like a high school chemistry lab instructions.
-Making food is necessarily a creative pursuit because of the variation in ingredients, environment, equipment, & taste.
-Therefore, recipes need to evolve from prescriptive list of tasks and make use of the thinking, feeling human potential.
-Recipes should describe the _goal_, not just the steps.
+Cooking is an art, not a science, yet most recipes read like they've been pulled straight from a high school chemistry lab manual.
+Whipping up a meal is inherently creative, thanks to the endless variations in ingredients, environments, equipment, and taste buds.
+So, it's high time recipes evolved from a strict to-do list and tapped into our thinking, feeling, human potential.
+In other words, recipes should focus on the end goal, rather than merely listing the steps.
 
-For example, instead of _Add 363 grams of flour to mix_.
-Prefer _Add about 350 grams of flour, until dough is sticky and you can work it easily_.
-The lack of "why" is even more astounding in the realm of internet recipes.
-Online, most recipes have a half dozen pages of SEO optimized cooking "narrative" that you must scroll through to get the _meat_.
+Take, for instance, the instruction to 'add 363 grams of flour to mix.'
+A better alternative might be, 'add about 350 grams of flour, or just enough to make the dough sticky and easy to work with.'
+The absence of the all-important 'why' is even more baffling when it comes to online recipes.
+On the internet, you'll often find yourself scrolling through six pages of SEO-optimized cooking 'narratives' just to get to the actual meat of the recipe.
+Sure, we can appreciate the effort it takes to convince us that a Caesar salad recipe is somehow emotionally significant.
+But let's be real – your heartfelt connection to romaine lettuce isn't helping anyone whip up a killer dressing.
 
-One can appreciate the effort that went into making the case that "this recipe for ceasar salad is emotionally significant to you."
-However, your connection doesn't help anyone make a dressing.
-
-Having a more interactive recipe doesn't preclude being analytical. For example:
+That said, adopting a more interactive approach to recipes doesn't mean we have to abandon an analytical mindset. For instance:
 _Cook about 40 minutes until crust is golden brown and internal temp is 200 degrees F._
 _At this temperature, the bread will be fully cooked but the water will still be liquid leaving the interior moist and delicious_.
 
-While this style is more verbose, it helps people learn the "why" behind recipes which makes home cooking both more fun and more reliable.
-As a final step, transcribing recipes by hand helps to re-condense the information and focus on what _you_ need to know.
+Sure, this style might be wordier, but understanding the 'why' behind recipes makes home cooking a whole lot more enjoyable and reliable.
+As a bonus tip, taking the time to transcribe recipes by hand can help you distill the information, ensuring you focus on the essentials that you need to know.

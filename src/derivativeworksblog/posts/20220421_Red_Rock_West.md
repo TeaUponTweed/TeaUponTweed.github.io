@@ -1,9 +1,9 @@
-Un-caged #6, Red Rock West April 21st, 2022
+Un-caged #6, Red Rock West
 -------------------------------------------
 
 **Do Not Watch**
 
-Stunning vistas of Southern Wyoming provide a beige canvas on which a story of love, lust, and murder are painted.
-Love of money, lust for bad decision making, and normal murder.
-There's enough camp and action throughout to sustain the movie, but only just.
-Recommended for fans of prairies and dramatic train escapes.
+Southern Wyoming's stunning vistas set the stage for a tale of love, lust, and murder.
+Specifically: Love of money, lust for bad decision making, and normal murder.
+The film is sustained by a healthy dose of camp and action, barely saving it from going off the rails.
+If you're a fan of picturesque prairies and nail-biting train escapes, this is a maybe-watch.

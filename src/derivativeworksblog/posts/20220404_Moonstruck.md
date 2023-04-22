@@ -1,4 +1,4 @@
-Un-caged #5, Moonstruck April 20th, 2022
+Un-caged #5, Moonstruck
 ----------------------------------------
 
 **Do Watch**

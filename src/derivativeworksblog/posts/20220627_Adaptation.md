@@ -6,14 +6,14 @@ And answers it with: "write about how annoying it is that you're commited to a n
 
 **Do Watch**
 
-Adaptation is a movie.
-It is also a movie about the making of a movie.
-That movie is an adaptation of a book.
-That book, "The Orchid Theif" is about flowers which have _adapted_ to a very particular niche.
-Nic Cage does the work of two men in the film, which meanders from thoughts on writing to the florida swamp.
+"Adaptation" is a movie.
+Not only is it a movie, but it's also about the making of one.
+The movie being made is an adaptation of a book.
+That book being adapted, "The Orchid Thief", is about flowers that have adapted to a very particular niche.
+Nic Cage pulls double duty in this film, taking us on a journey from introspective thoughts on writing to the wilds of the Florida swamp.
 
-I found my self watching Adaptation and loving it, as I have almost all of the Nic Cage movies thus far despite their variable quality.
-This has led me to a conclusion: Expectation and research are note worth it for movies (or any low time commitment, scarce field like movies).
-The damage you do to your enjoyment by knowing anything about it, even the genre, can dramatically affect how you perceive that media and take away the joy of discovery that, if not intented by the creatiors, still enriches the experience.
-When "good enough" media is delivered to you on a platter you are happier than carefully selecting from the best in the world.
-The IMDB top 250 could serve some of this purpose, but it carries with it a certain expectation of goodness.
+I found myself watching "Adaptation" and loving it, as I have almost all of the Nic Cage movies thus far despite their variable quality.
+This realization has led me to conclude that, in the context of low-time-commitment and scarce fields like movies, having expectations and doing research may not be worth it.
+The damage you do to your enjoyment by knowing anything about a movie, even its genre, can dramatically affect your perception of it. This knowledge takes away the joy of discovery that, although perhaps not intended by the creators, still enriches the experience.
+When "good enough" media is readily available, you might find more enjoyment than in meticulously choosing from the best in the world.
+The IMDB Top 250 list could partially fulfill this role, but it inevitably comes with a certain expectation of greatness.

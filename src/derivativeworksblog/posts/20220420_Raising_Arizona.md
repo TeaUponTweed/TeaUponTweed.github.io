@@ -1,4 +1,4 @@
-Un-caged #4, Raising Arizona April 4th, 2022
+Un-caged #4, Raising Arizona
 --------------------------------------------
 
 **Do Watch**
