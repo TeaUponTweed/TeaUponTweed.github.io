@@ -4,7 +4,7 @@ description: "Leaving Las Vegas is a harrowing movie in which Nic Cage's charact
 keywords: "Nic Cage, Leaving Las Vegas, movie review, alcoholism, freelance prostitute, symbolism, message, discomfort, unconventional film, engagement"
 date: "20220627"
 ---
-# Nicolas Un-caged #8, Leaving Las Vegas
+# Nicolas Un-caged #9, Leaving Las Vegas
 
 
 _Do not watch_

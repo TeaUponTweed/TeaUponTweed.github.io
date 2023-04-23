@@ -2,6 +2,8 @@ import glob
 import os
 import re
 import sys
+from dataclasses import dataclass
+from typing import Dict
 
 import click
 import markdown2
@@ -21,17 +23,69 @@ def extract_front_matter(markdown_text):
     return front_matter, content
 
 
-def get_post_name(post: str) -> str:
-    return os.path.basename(post).replace(".md", ".html")
+@dataclass
+class Post:
+    name: str
+    title: str
+    html: str
+    date: str
+
+
+def load_post(post_path: str, header_html: str) -> Post:
+    with open(post_path, "r") as fo:
+        front_matter, content = extract_front_matter(fo.read())
+    post_html = markdown2.markdown(content)
+
+    date = front_matter["date"]
+    title = front_matter["title"]
+    doc_html = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>{title}</title>
+
+    <link rel="stylesheet" href="style.css">
+    <meta name="Author" content="Michael Mason" />
+    <meta name="rating" content="SAFE FOR KIDS" />
+    <meta name="description" content="{description}" />
+    <meta name="keywords" content="{keywords}" />
+    <meta name="Classification" content="Blog" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="Language" content="en-US" />
+</head>
+<body>
+{header}
+<main>
+<article>
+    {body}
+</article>
+</main>
+</body>
+</html>
+""".format(
+        title=front_matter["title"],
+        header=header_html,
+        body=post_html,
+        description=front_matter["description"],
+        keywords=front_matter["keywords"],
+    )
+    post_name = os.path.basename(post_path).replace(".md", ".html")
+    return Post(
+        name=post_name,
+        html=doc_html,
+        title=title,
+        date=date,
+    )
 
 
 @click.command()
 @click.option("-p", "postdir", type=str)
 @click.option("-o", "outdir", type=str)
 def main(postdir: str, outdir: str):
-    posts = sorted(glob.glob(os.path.join(postdir, "*.md")), reverse=True)
-    posts = [post for post in posts if "/Draft_" not in post]
-    compiled_posts = {}
+    # header for all files
     header_html = """
     <header>
       <h1>
@@ -43,57 +97,23 @@ def main(postdir: str, outdir: str):
       </nav>
     </header>
 """
-    # regex = r".*/[0-9]{8}[\w_-]+\.md"
-    # pattern = re.compile(regex)
+    # load posts and convert to HTML
+    posts_paths = sorted(glob.glob(os.path.join(postdir, "*.md")), reverse=True)
+    posts = [
+        load_post(post_path=posts_path, header_html=header_html)
+        for posts_path in posts_paths
+        if "/Draft_" not in posts_path
+    ]
+    posts = sorted(
+        posts,
+        key=lambda x: x.date,
+        reverse=True,
+    )
+    # save posts
     for post in posts:
-        # assert pattern.match(post) is not None, post
-
-        # post_html = markdown2.markdown_path(post)
-        with open(post, "r") as fo:
-            front_matter, content = extract_front_matter(fo.read())
-        post_html = markdown2.markdown(content)
-
-        date = front_matter["date"]
-        title = front_matter["title"]
-        doc_html = """
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-
-        <title>{title}</title>
-
-        <link rel="stylesheet" href="style.css">
-        <meta name="Author" content="Michael Mason" />
-        <meta name="rating" content="SAFE FOR KIDS" />
-        <meta name="description" content="{description}" />
-        <meta name="keywords" content="{keywords}" />
-        <meta name="Classification" content="Blog" />
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-        <meta name="Language" content="en-US" />
-    </head>
-    <body>
-    {header}
-    <main>
-    <article>
-        {body}
-    </article>
-    </main>
-    </body>
-</html>
-""".format(
-            title=front_matter["title"],
-            header=header_html,
-            body=post_html,
-            description=front_matter["description"],
-            keywords=front_matter["keywords"],
-        )
-        post_name = get_post_name(post)
-        # TODO inline here
-        print(doc_html, file=open(os.path.join(outdir, post_name), "w"))
-        compiled_posts[title, date] = post_name
-
+        with open(os.path.join(outdir, post.name), "w") as fo:
+            print(post.html, file=fo)
+    # main entrypoint
     index_html = """
 <!DOCTYPE html>
 <html lang="en">
@@ -132,12 +152,12 @@ def main(postdir: str, outdir: str):
 """.format(
         header=header_html,
         body="\n".join(
-            f'<li><a href="/static/{post_name}"> {title} </a> </li>'
-            for (title, date), post_name in compiled_posts.items()
+            f'<li><a href="/static/{post.name}"> {post.title} </a> </li>'
+            for post in posts
         ),
     )
     print(index_html, file=open(os.path.join(outdir, "index.html"), "w"))
-
+    # RSS feed
     rss_html = """
 <rss version="2.0">
     <channel>
@@ -150,8 +170,8 @@ def main(postdir: str, outdir: str):
 </rss>
 """.format(
         "\n".join(
-            f"        <item> <title>{title}</title> <link>https://blog.derivativeworks.co/static/{post_name}</link> <pubDate>{format_date_for_rss(date)}</pubDate> </item>"
-            for (title, date), post_name in compiled_posts.items()
+            f"        <item> <title>{post.title}</title> <link>https://blog.derivativeworks.co/static/{post.name}</link> <pubDate>{format_date_for_rss(post.date)}</pubDate> </item>"
+            for post in posts
         )
     )
     print(rss_html, file=open(os.path.join(outdir, "rss.xml"), "w"))

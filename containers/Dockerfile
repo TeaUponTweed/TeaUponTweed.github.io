@@ -8,8 +8,6 @@ COPY . .
 
 RUN pip install --no-cache-dir -e .
 
-RUN compile-all -p ./src/derivativeworksblog/posts/ -o ./src/derivativeworksblog/static/
-
 ENV PYTHONUNBUFFERED=.
 
 ENTRYPOINT [ "gunicorn", "-b", "0.0.0.0:5556", "derivativeworksblog.app:app"]
