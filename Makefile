@@ -1,4 +1,4 @@
-.PHONY: clean compile inline upload install
+.PHONY: clean compile inline upload freeze install polish
 
 MAKEFILE_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
@@ -27,3 +27,10 @@ install:
 	pip install -U -r dev-requirements.txt
 	pip install -r requirements.txt
 	pip install -e .
+
+polish:
+	black src
+	isort src
+
+serve: inline
+	gunicorn -b 0.0.0.0:5556 derivativeworksblog.app:app

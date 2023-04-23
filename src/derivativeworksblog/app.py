@@ -4,6 +4,11 @@ from flask import Flask, request, send_file, send_from_directory
 app = Flask(__name__)
 
 
+@app.route("/favicon.ico")
+def favicon():
+    return send_file("static/favicon.ico")
+
+
 @app.route("/")
 def home():
     return send_file("static/index.html")

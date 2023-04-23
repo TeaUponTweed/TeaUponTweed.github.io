@@ -1,5 +1,11 @@
-Recipes Are Too Prescriptive
------------------------------------
+---
+title: "Recipes Are Too Prescriptive"
+description: "Explore the idea that traditional recipes are too restrictive and should focus on the end goal rather than listing exact steps. Learn how understanding the 'why' behind cooking instructions can make home cooking more enjoyable and reliable."
+keywords: "recipes, cooking, prescriptive, creativity, ingredients, variations, instructions, understanding, home cooking"
+date: "20220330"
+---
+
+# Recipes Are Too Prescriptive
 
 Cooking is an art, not a science, yet most recipes read like they've been pulled straight from a high school chemistry lab manual.
 Whipping up a meal is inherently creative, thanks to the endless variations in ingredients, environments, equipment, and taste buds.

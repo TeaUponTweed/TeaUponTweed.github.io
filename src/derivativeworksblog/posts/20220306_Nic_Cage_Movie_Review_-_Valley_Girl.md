@@ -1,5 +1,11 @@
-Nicolas Un-caged #1, "Valley Girl" March 6th, 2022, Edited November 20th, 2022
---------------------------------------------------
+---
+title: "Nic Cage Movie Review: Valley Girl"
+description: "Join us on a journey through Nicolas Cage's notable filmography, starting with Valley Girl, his first starring credit. Find out why this 80s movie may not be worth watching, and learn some fun facts about the term 'Valley Girl.'"
+keywords: "Nicolas Cage, Valley Girl, film review, Nicolas Un-caged, movie journey, San Fernando Valley"
+date: "20220306"
+---
+
+# Nicolas Un-caged #1, "Valley Girl"
 
 Let's watch all* the Nicolas Cage movies!
 *Or rather, only films which:
@@ -11,7 +17,7 @@ We start off by breaking the rules and watching the not-that-well rated and quit
 In some ways, the tagline says it all:
 "She's cool. He's hot. She's from the valley. He's not."
 
-**Do Not Watch**
+_Do Not Watch_
 
 Most notable as being Cage's first starring credit, this movie is, like, really not that good.
 Additionally, Nic Cage is so not that hot.

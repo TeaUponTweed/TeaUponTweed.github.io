@@ -1,10 +1,16 @@
-Un-caged #7, The Rock
---------------------------------------
+---
+title: "Nic Cage Movie Review: The Rock"
+description: "A movie review of The Rock, a well-known and well-regarded Nic Cage movie. Explore the plot, characters, and thoughts on the film."
+keywords: "Nic Cage, The Rock, movie review, Michael Mason, MBM Blog"
+date: "20220421"
+---
+
+# Nicolas Un-caged #7, The Rock
 
 "The Rock" is the first Nic Cage movie chronologically that was both well-known and well-regarded.
 This was exciting, but it led inevitably to the cardinal sin of movie watching: having expectations.
 
-**Do Not Watch**
+_Do Not Watch_
 
 For the uninitiated, here's a quick rundown of the plot:
 Terrorists take over Alcatraz and hold the city of San Francisco under threat of annihilation with chemical weapons.

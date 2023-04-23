@@ -1,4 +1,5 @@
+click
 flask
 gunicorn
 markdown2
-click
+PyYAML

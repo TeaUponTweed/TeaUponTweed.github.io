@@ -1,10 +1,3 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 /* Color scheme */
 :root {
   --textcolor: #121212;
@@ -20,99 +13,70 @@
   }
 }
 
-/* Body */
 body {
-  font-size: 1rem;
+  font-size: 18px;
+  font-family: system-ui, sans-serif;
   line-height: 1.4;
   color: var(--textcolor);
   background: var(--bgcolor);
-  max-width: 64rem;
-  margin: 0 auto;
+  margin: 0;
   padding: 1rem;
 }
 
-/* Responsive typography */
-@media (min-width: 40rem) {
-  body {
-    font-size: calc(1rem + ((1vw - 0.4rem) * 1.2));
-  }
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* Links */
 a {
-  color: var(--highlight);
   text-decoration: none;
+  color: var(--highlight);
 }
 
 a:hover {
-  border-bottom: 1px solid var(--highlight);
+  border-bottom: 1px solid;
 }
 
-/* Headings */
 h1, h2, h3, h4 {
-  font-weight: bold;
-  margin-bottom: 1rem;
-  margin-top: 1.5rem;
+  font-size: 1em;
+  font-weight: 600;
+  margin: 1.6em 0 .6em 0;
 }
 
-h1 {
-  font-size: 2rem;
+p, ul, ol, article {
+  margin-bottom: .6em;
 }
 
-h2 {
-  font-size: 1.8rem;
-}
-
-h3 {
-  font-size: 1.6rem;
-}
-
-h4 {
-  font-size: 1.4rem;
-}
-
-/* Paragraphs */
-p {
-  margin-bottom: 1rem;
-}
-
-/* Lists */
-ul, ol {
-  margin-bottom: 1rem;
+ul li::marker {
+  content: "\2022   ";
 }
 
 li {
-  margin-left: 1rem;
+  margin-bottom: .2em;
 }
 
-/* Images */
-img {
+ul, ol {
+  padding-left: 2ch;
+}
+
+img, svg, video, audio {
+  display: block;
   max-width: 100%;
   height: auto;
-  display: block;
-  margin: 1rem auto;
+  fill: currentColor;
 }
 
-/* Responsive images */
-@media (min-width: 40rem) {
-  img {
-    margin: 1rem;
-  }
-}
-
-/* Responsive layout */
-@media (min-width: 40rem) {
+@media (min-width: 768px) {
   body {
     padding: 2rem;
   }
-}
 
-/* Navigation */
-.main-nav {
-  display: flex;
-  justify-content: space-between;
-}
+  h1, h2, h3, h4 {
+    margin-left: 5vw;
+  }
 
-.main-nav a:last-child {
-  margin-left: auto;
+  p, ul, ol, article {
+    margin-left: 5vw;
+  }
 }

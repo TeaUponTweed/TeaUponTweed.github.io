@@ -1,10 +1,15 @@
-Un-caged #9, Adaptation, June 27th, 2022
----------------------------------------------
+---
+title: "Nic Cage Movie Review: Adaptation"
+description: "Adaptation is a meta film about the making of a movie based on the book 'The Orchid Thief.' Nic Cage stars in dual roles, exploring the challenges of writing and adaptation. Discover the unexpected joys of 'good enough' media and the impact of expectations on enjoyment."
+keywords: "Nic Cage, Adaptation, movie review, The Orchid Thief, writing, expectations, film making, meta film, enjoyment, discovery, Florida swamp"
+date: "20220627"
+---
+# Nicolas Un-caged #9, Adaptation
 
 Adaptation asks a question: "what if an idea doesn't have enough legs?"
 And answers it with: "write about how annoying it is that you're commited to a not great idea, and see how that goes."
 
-**Do Watch**
+_Do Watch_
 
 "Adaptation" is a movie.
 Not only is it a movie, but it's also about the making of one.

@@ -1,7 +1,12 @@
-Nicolas Un-caged #3, "Left Behind" March 27th, 2022
----------------------------------------------------
+---
+title: "Nic Cage Movie Review: Left Behind"
+description: "Discover why the movie Left Behind, starring Nicolas Cage, may not be worth watching. With wooden acting, a contrived plot, and the possibility of a sequel, this film fails to entertain despite its promising premise."
+keywords: "Nicolas Cage, Left Behind, film review, Nic Cage Movie Review, movie journey, wooden acting, contrived plot"
+date: "20220327"
+---
+# Nicolas Un-caged #3, "Left Behind"
 
-**Do Not Watch**
+_Do Not Watch_
 
 When watching ["Left Behind"](https://www.imdb.com/title/tt2467046/?ref_=nm_flmg_act_39), I expected to be transported.
 However, my sins of film critiques were such that I was forced to endure three plagues:

@@ -8,7 +8,7 @@ COPY . .
 
 RUN pip install --no-cache-dir -e .
 
-RUN cd ./src/derivativeworksblog && compile-all -p posts/ -o static/ && cd -
+RUN compile-all -p ./src/derivativeworksblog/posts/ -o ./src/derivativeworksblog/static/
 
 ENV PYTHONUNBUFFERED=.
 
